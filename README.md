@@ -45,6 +45,15 @@ $ yarn run start:dev
 $ yarn run start:prod
 ```
 
+## Running the app with Docker
+
+```bash
+$ docker build -t ppaa-info-unlp .
+
+# Volume mapping is needed to allow watch mode within Docker
+$ docker run -p 3000:3000 -v .:/usr/src/app ppaa-info-unlp
+```
+
 ## Test
 
 ```bash
