@@ -1,10 +1,11 @@
 name: Run tests and linter
 
-# Configures this workflow to run every time a new tag is pushed.
 on:
   pull_request:
+  push:
+    branches:
+      - main
 
-# There is a single job in this workflow. It's configured to run on the latest available version of Ubuntu.
 jobs:
   ci:
     runs-on: ubuntu-latest
