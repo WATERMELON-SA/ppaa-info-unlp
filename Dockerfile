@@ -1,11 +1,11 @@
 # Use Node.js as base image
-FROM node:20.9.0
+FROM node:20.11.1-alpine
 
 # Set the working directory inside the container
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json to WORKDIR
-COPY package*.json ./
+# Copy package.json and yarn.lock to WORKDIR
+COPY package.json yarn.lock ./
 
 # Install dependencies
 RUN yarn install
