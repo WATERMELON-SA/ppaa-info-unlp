@@ -26,6 +26,12 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+## Pulling image from registry
+
+```bash
+docker pull ghcr.io/watermelon-sa/ppaa-info-unlp:latest
+```
+
 ## Installation
 
 ```bash
