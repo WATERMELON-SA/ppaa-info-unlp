@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3000
 
 # Command to run your NestJS application
-CMD ["yarn", "start:dev"]
+CMD ["yarn", "start"]
