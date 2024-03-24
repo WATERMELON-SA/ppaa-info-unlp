@@ -1,0 +1,21 @@
+name: Run tests and linter
+
+# Configures this workflow to run every time a new tag is pushed.
+on:
+  pull_request:
+
+# There is a single job in this workflow. It's configured to run on the latest available version of Ubuntu.
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: yarn
+      - name: Run Jest
+        run: yarn test
+      - name: Run linter
+        run: yarn lint
