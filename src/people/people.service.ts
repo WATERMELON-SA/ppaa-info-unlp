@@ -11,8 +11,11 @@ export class PeopleService {
     private peopleRepository: Repository<Person>,
   ) {}
 
-  create(createPersonDto: CreatePersonDto) {
-    return this.peopleRepository.create(createPersonDto);
+  async create(createPersonDto: CreatePersonDto): Promise<Person> {
+    const newPerson = this.peopleRepository.create(createPersonDto);
+    await this.peopleRepository.save(newPerson);
+
+    return newPerson;
   }
 
   findAll() {

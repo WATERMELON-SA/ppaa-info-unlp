@@ -15,6 +15,7 @@ import { Person } from '../people/entities/person.entity';
       password: 'root',
       database: 'test',
       entities: [Person],
+      synchronize: true,
     }),
     PeopleModule
   ],
