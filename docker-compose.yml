@@ -11,14 +11,15 @@ services:
       - node_modules:/usr/src/app/node_modules
     depends_on:
       - db
+    links:
+      - db:db
   db:
     image: mysql:8.3
     restart: always
     environment:
-      MYSQL_DATABASE: 'test'
+      MYSQL_DATABASE: 'ppaa'
       MYSQL_USER: 'user'
       MYSQL_PASSWORD: 'password'
-      MYSQL_ROOT_PASSWORD: 'root'
     ports:
       - '3306:3306'
     expose:

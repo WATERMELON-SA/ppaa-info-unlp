@@ -1,22 +1,20 @@
+// NestJS imports
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { DatabaseModule } from './database.module';
+
+// Root imports
 import { AppController } from '../controllers/app.controller';
 import { AppService } from '../services/app.service';
+
+// People module
 import { PeopleModule } from '../people/people.module';
-import { Person } from '../people/entities/person.entity';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'db',
-      port: 3306,
-      username: 'root',
-      password: 'root',
-      database: 'test',
-      entities: [Person],
-      synchronize: true,
-    }),
+    ConfigModule.forRoot(),
+    DatabaseModule,
     PeopleModule
   ],
   controllers: [AppController],
