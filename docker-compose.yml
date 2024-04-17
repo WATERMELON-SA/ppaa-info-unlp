@@ -4,10 +4,36 @@ services:
   web:
     build: .
     command: "yarn start:dev"
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PORT: 3306
+      DATABASE_USER: user
+      DATABASE_PASSWORD: password
+      DATABASE_NAME: ppaa
+      DATABASE_LOGGING: true
     ports:
       - 3000:3000
     volumes:
       - .:/usr/src/app
       - node_modules:/usr/src/app/node_modules
+    depends_on:
+      - db
+    links:
+      - db:db
+  db:
+    image: mysql:8.3
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: 'ppaa'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - db:/var/lib/mysql
 volumes:
   node_modules:
+  db:
