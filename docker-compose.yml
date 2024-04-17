@@ -22,7 +22,7 @@ services:
       - db:db
   db:
     image: mysql:8.3
-    restart: always
+    restart: unless-stopped
     environment:
       MYSQL_DATABASE: 'ppaa'
       MYSQL_USER: 'user'
