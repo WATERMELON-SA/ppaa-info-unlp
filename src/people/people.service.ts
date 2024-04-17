@@ -18,7 +18,7 @@ export class PeopleService {
     return newPerson;
   }
 
-  findAll() {
+  async findAll() {
     return this.peopleRepository.find();
   }
 }
