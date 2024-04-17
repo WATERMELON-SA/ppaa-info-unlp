@@ -8,8 +8,6 @@ export function typeOrmFactory(
   configService: ConfigService,
 ): TypeOrmModuleOptions {
 
-  console.log(configService.get('DATABASE_HOST'))
-
   const outputOptions: TypeOrmModuleOptions = {
     type: 'mysql',
     host: configService.get('DATABASE_HOST'),
