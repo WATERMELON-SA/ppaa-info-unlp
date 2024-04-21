@@ -26,11 +26,11 @@ describe('PeopleController', () => {
   });
 
   describe('create', () => {
-    let mockUser: CreatePersonDto = {
+    const mockUser: CreatePersonDto = {
       firstName: 'Jane',
       lastName: 'Doe',
-      birthday: '1997-06-04'
-    }
+      birthday: '1997-06-04',
+    };
     it('should create a new person', () => {
       expect(controller.create(mockUser)).toBe('This action adds a new person');
     });
