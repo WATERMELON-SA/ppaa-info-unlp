@@ -4,8 +4,8 @@
   "description": "",
   "author": "",
   "private": true,
-  "license": "UNLICENSED",
   "type": "module",
+  "license": "MIT",
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
