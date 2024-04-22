@@ -1,7 +1,6 @@
 // NestJS imports
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ConfigModule } from '@nestjs/config';
 import { DatabaseModule } from './database.module';
 
 // Root imports
@@ -12,11 +11,7 @@ import { AppService } from '../services/app.service';
 import { PeopleModule } from '../people/people.module';
 
 @Module({
-  imports: [
-    ConfigModule.forRoot(),
-    DatabaseModule,
-    PeopleModule
-  ],
+  imports: [ConfigModule.forRoot(), DatabaseModule, PeopleModule],
   controllers: [AppController],
   providers: [AppService],
 })
