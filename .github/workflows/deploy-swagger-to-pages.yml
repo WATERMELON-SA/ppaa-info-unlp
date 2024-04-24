@@ -43,7 +43,7 @@ jobs:
 
       - name: Generate Swagger JSON
         env:
-          DATABASE_HOST: db
+          DATABASE_HOST: localhost
           DATABASE_PORT: 3306
           DATABASE_USER: user
           DATABASE_PASSWORD: password
