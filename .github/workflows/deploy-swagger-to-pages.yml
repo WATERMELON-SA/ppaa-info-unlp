@@ -1,0 +1,48 @@
+name: Deploy Swagger to GitHub Pages
+
+on:
+  pull_request:
+  # push:
+    # branches:
+    #   - main
+
+jobs:
+  generate-and-deploy-swagger:
+    runs-on: ubuntu-latest
+
+    permissions:
+      pages: write
+      id-token: write
+
+    # Deploy to the github-pages environment
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Generate Swagger JSON
+        run: yarn generate-swagger
+
+      - name: Download Swagger source code
+        run: |
+          wget https://github.com/swagger-api/swagger-ui/archive/refs/tags/v5.17.0.zip -O swagger-source-code
+          unzip swagger-source-code -d swagger-code
+          mkdir -p _site
+          mv swagger-code/swagger-ui-5.17.0/dist/* _site/
+          mv swagger.json _site/
+          sed -i 's,url: "https://petstore.swagger.io/v2/swagger.json",url: "./swagger.json",' _site/swagger-initializer.js
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
