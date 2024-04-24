@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { PeopleController } from '../../src/people/people.controller';
-import { PeopleService } from '../../src/people/people.service';
+import { PeopleController } from 'src/people/people.controller';
+import { PeopleService } from 'src/people/services/people.service';
 import { CreatePersonDto } from 'src/people/dto/create-person.dto';
 
 describe('PeopleController', () => {
