@@ -14,10 +14,10 @@ export class PeopleService {
     private peopleTransformService: PeopleTransformService,
   ) {}
 
-  async create(createPersonDto: CreatePersonDto): Promise<Person> {
+  async create(createPersonDto: CreatePersonDto): Promise<GetPersonDto> {
     const newPerson = this.peopleRepository.create(createPersonDto);
     await this.peopleRepository.save(newPerson);
-    return newPerson;
+    return this.peopleTransformService.transformPersonToGetPersonDto(newPerson);
   }
 
   async findAll(): Promise<GetPersonDto[]> {
