@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Person } from 'src/people/entities/person.entity';
-import { CreatePersonDto } from 'src/people/dto/create-person.dto';
+import { Person } from '../entities/person.entity';
+import { CreatePersonDto } from '../dto/create-person.dto';
 import { PeopleTransformService } from './people-transform.service';
-import { GetPersonDto } from 'src/people/dto/get-person.dto';
+import { GetPersonDto } from '../dto/get-person.dto';
 
 @Injectable()
 export class PeopleService {
