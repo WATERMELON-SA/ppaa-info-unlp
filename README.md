@@ -62,7 +62,7 @@ docker-compose run web yarn data:seed
 - Ingresar la URL en la que está corriendo la aplicación: `http://localhost:3000/api-json` por default.
 - Al finalizar, debería haberse generado una colección en Postman llamada `PPAA - Info UNLP` con los endpoints disponibles del proyecto.
 
-***Nota adicional: Tener en cuenta que el servidor de la aplicacion se levanta en el puerto 3000. La colleccion generada utiliza como url {{baseurl}}. Esto puede ser reemplazado por `http://localhost:3000` o bien setear la variable baseurl desde la configuracion de Postman.***
+***Nota adicional: Tener en cuenta que el servidor de la aplicación se levanta en el puerto 3000. La colección generada utiliza como url {{baseurl}}. Esto puede ser reemplazado por `http://localhost:3000` o bien setear la variable baseurl desde la configuracion de Postman.***
 
 Más información disponible en la [documentación oficial de Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-from-swagger/).
 

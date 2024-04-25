@@ -6,6 +6,6 @@ export async function getSwaggerDocument(app) {
     .setVersion('0.0.1')
     .addTag('ppaa')
     .build();
-  
+
   return SwaggerModule.createDocument(app, config);
 }
