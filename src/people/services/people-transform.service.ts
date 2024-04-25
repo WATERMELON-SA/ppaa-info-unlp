@@ -16,7 +16,7 @@ export class PeopleTransformService {
     const today = new Date();
     let age = today.getFullYear() - birthday.getFullYear();
     const monthDiff = today.getMonth() - birthday.getMonth();
-    const dayDiff = today.getDate() < birthday.getDate()
+    const dayDiff = today.getDate() < birthday.getDate();
     if (monthDiff < 0 || (monthDiff === 0 && dayDiff)) {
       age--;
     }
