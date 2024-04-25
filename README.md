@@ -49,7 +49,7 @@ $ docker-compose up -d
 
 - Correr la aplicación de forma local, ya sea con `yarn` o con `docker / docker-compose`
 - Abrir Postman y en la pestaña de Colecciones, hacer click en el botón `Importar`
-- Ingresar la URL en la que está corriendo la aplicación: `http://localhost:3000` por default.
+- Ingresar la URL en la que está corriendo la aplicación: `http://localhost:3000/api-json` por default.
 - Al finalizar, debería haberse generado una colección en Postman llamada `PPAA - Info UNLP` con los endpoints disponibles del proyecto.
 
 Más información disponible en la [documentación oficial de Postman](https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-from-swagger/).
