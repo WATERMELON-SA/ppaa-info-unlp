@@ -1,7 +1,7 @@
 import { Controller, Get, Post, Body } from '@nestjs/common';
-import { PeopleService } from './services/people.service';
+import { PeopleService } from 'src/people/services/people.service';
 import { ApiTags } from '@nestjs/swagger';
-import { CreatePersonDto } from './dto/create-person.dto';
+import { CreatePersonDto } from 'src/people/dto/create-person.dto';
 
 @ApiTags('People')
 @Controller('people')
