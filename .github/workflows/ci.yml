@@ -1,0 +1,26 @@
+name: Run tests and linter
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install
+      - name: Run Jest
+        run: yarn test
+      - name: Run e2e tests
+        run: yarn test:e2e
+      - name: Run linter
+        run: yarn lint
