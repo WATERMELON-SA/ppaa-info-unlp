@@ -20,5 +20,7 @@ jobs:
         run: yarn install
       - name: Run Jest
         run: yarn test
+      - name: Run e2e tests
+        run: yarn test:e2e
       - name: Run linter
         run: yarn lint
