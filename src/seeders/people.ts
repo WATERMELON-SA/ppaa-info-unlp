@@ -13,6 +13,7 @@ export async function seedData(dataSource: DataSource): Promise<void> {
       firstName: faker.person.firstName(),
       lastName: faker.person.lastName(),
       birthday: String(faker.date.birthdate()),
+      email: faker.internet.email(),
     };
 
     return peopleRepository.save(peopleRepository.create(dto));

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, ConflictException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Person } from '../entities/person.entity';
@@ -15,6 +15,15 @@ export class PeopleService {
   ) {}
 
   async create(createPersonDto: CreatePersonDto): Promise<GetPersonDto> {
+    // Check for existing person with the same email before attempting to save
+    const existingPerson = await this.peopleRepository.findOne({
+      where: { email: createPersonDto.email }
+    });
+
+    if (existingPerson) {
+      throw new ConflictException('A person with this email already exists');
+    }
+
     const newPerson = this.peopleRepository.create(createPersonDto);
     await this.peopleRepository.save(newPerson);
     return this.peopleTransformService.transformPersonToGetPersonDto(newPerson);
@@ -22,8 +31,6 @@ export class PeopleService {
 
   async findAll(): Promise<GetPersonDto[]> {
     const people = await this.peopleRepository.find();
-    return people.map((person) =>
-      this.peopleTransformService.transformPersonToGetPersonDto(person),
-    );
+    return people.map(person => this.peopleTransformService.transformPersonToGetPersonDto(person));
   }
 }
