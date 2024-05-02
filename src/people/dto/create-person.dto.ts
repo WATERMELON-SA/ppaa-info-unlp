@@ -17,7 +17,6 @@ export class CreatePersonDto {
     example: '2003-04-01',
     description: "Person's birthday formatted in date-only ISO8601",
   })
-
   @Type(() => Date)
   @MaxDate(maxBirthday) // Validates age to be at least 18 years old
   @MinDate(minBirthday) // Validates age not to exceed 125 years
@@ -27,7 +26,6 @@ export class CreatePersonDto {
     example: 'john.doe@example.com',
     description: "Person's unique email address",
   })
-
   @IsEmail()
   @IsNotEmpty()
   email: string;

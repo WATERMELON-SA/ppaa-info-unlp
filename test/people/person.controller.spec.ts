@@ -29,6 +29,7 @@ describe('PeopleController', () => {
     const mockUser: CreatePersonDto = {
       firstName: 'Jane',
       lastName: 'Doe',
+      email: 'johndoe@test.com',
       birthday: '1997-06-04',
     };
     it('should create a new person', () => {
